@@ -7,7 +7,7 @@ $product = $product->show($id);
 ?>
 
 <div class="container">
-    <form action="handlers/handledit.php" method="POST">
+    <form action="handlers/handledit.php?id=<?php echo $product['id'] ?>" method="POST">
     <div class="mb-3 form-group">
       <label  class="form-label">Product Name</label>
       <input type="text" class="form-control" name="proname" value="<?php  echo $product['proname']  ?>">

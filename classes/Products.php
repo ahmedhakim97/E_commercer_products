@@ -34,17 +34,24 @@ class Products  extends MyPdo
         $result = $stmt->fetch();
         return $result;
     }
-    //create
-    function create(($name , $price , $desc)
-    {
+        //create new ;
+        public function store($proname , $price , $prodesc , $img)
+        {
+        $query = "insert into products(proname , price , prodesc , img) values (?,?,?,?)";
+        $result =  $this->connect();  
+        $result =  $result->prepare($query);
+        $result->execute([$proname , $price , $prodesc , $img]);
+        return true;
 
-    } 
+        }
     //update 
     function update($name , $price , $desc ,$id)
     {
         $stmt = $this->connect();
        $query = "UPDATE {$tproducts} SET proname=?, prodesc=?, price=? WHERE id=? ";
        $stmt= $stmt->prepare($query);
+       $stmt->execute([$proname ,  $prodesc , $price , $id]);
+       return true;
     }
     //delete
 
